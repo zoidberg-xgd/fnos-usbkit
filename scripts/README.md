@@ -1,4 +1,4 @@
-# 飞牛OS USB备份工具
+# FnOS-UsbKit 脚本目录
 
 简洁高效的USB移动硬盘备份解决方案，支持RAID+LVM结构。
 
@@ -41,7 +41,7 @@ ssh root@192.168.31.104 'chmod +x /usr/local/bin/*.sh && ln -sf /usr/local/bin/u
 
 ## 📖 详细文档
 
-查看根目录的 `USB备份工具使用指南.md` 获取完整说明。
+查看根目录的 `FnOS-UsbKit 使用指南.md` 获取完整说明。
 
 ## ⚠️ 重要提醒
 

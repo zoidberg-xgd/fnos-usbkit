@@ -1,6 +1,6 @@
-# USB备份工具
+# FnOS-UsbKit
 
-Linux环境下的USB备份自动化工具，支持RAID、LVM和虚拟机环境。
+飞牛OS USB工具箱 - 解决USB掉盘问题 + 智能备份，支持RAID、LVM和虚拟机环境。
 
 ## 特性
 
@@ -32,8 +32,8 @@ Linux环境下的USB备份自动化工具，支持RAID、LVM和虚拟机环境�
 
 ```bash
 # 克隆仓库
-git clone https://github.com/yourusername/usb-backup-tools.git
-cd usb-backup-tools
+git clone https://github.com/yourusername/fnos-usbkit.git
+cd fnos-usbkit
 
 # 运行安装脚本
 sudo bash install.sh
@@ -41,7 +41,7 @@ sudo bash install.sh
 
 安装脚本会：
 1. 检查并安装依赖
-2. 复制文件到 `/opt/usb-backup-tools`
+2. 复制文件到 `/opt/fnos-usbkit`
 3. 创建系统命令（`mount-usb`, `backup-to-usb` 等）
 4. 初始化配置文件
 5. 运行测试验证安装
@@ -50,22 +50,22 @@ sudo bash install.sh
 
 ```bash
 # 1. 复制文件
-sudo mkdir -p /opt/usb-backup-tools
-sudo cp -r lib scripts config tests /opt/usb-backup-tools/
+sudo mkdir -p /opt/fnos-usbkit
+sudo cp -r lib scripts config tests /opt/fnos-usbkit/
 
 # 2. 设置权限
-sudo chmod +x /opt/usb-backup-tools/scripts/*.sh
-sudo chmod 644 /opt/usb-backup-tools/lib/common.sh
+sudo chmod +x /opt/fnos-usbkit/scripts/*.sh
+sudo chmod 644 /opt/fnos-usbkit/lib/common.sh
 
 # 3. 创建配置文件
-sudo cp /opt/usb-backup-tools/config/usb_backup.conf.example \
-        /opt/usb-backup-tools/config/usb_backup.conf
+sudo cp /opt/fnos-usbkit/config/usb_backup.conf.example \
+        /opt/fnos-usbkit/config/usb_backup.conf
 
 # 4. 创建符号链接（可选）
-sudo ln -s /opt/usb-backup-tools/scripts/mount_usb_backup.sh /usr/local/bin/mount-usb
-sudo ln -s /opt/usb-backup-tools/scripts/umount_usb_backup.sh /usr/local/bin/umount-usb
-sudo ln -s /opt/usb-backup-tools/scripts/auto_backup_to_usb.sh /usr/local/bin/backup-to-usb
-sudo ln -s /opt/usb-backup-tools/scripts/diagnose_usb_disk.sh /usr/local/bin/diagnose-usb
+sudo ln -s /opt/fnos-usbkit/scripts/mount_usb_backup.sh /usr/local/bin/mount-usb
+sudo ln -s /opt/fnos-usbkit/scripts/umount_usb_backup.sh /usr/local/bin/umount-usb
+sudo ln -s /opt/fnos-usbkit/scripts/auto_backup_to_usb.sh /usr/local/bin/backup-to-usb
+sudo ln -s /opt/fnos-usbkit/scripts/diagnose_usb_disk.sh /usr/local/bin/diagnose-usb
 ```
 
 ## 配置
@@ -73,7 +73,7 @@ sudo ln -s /opt/usb-backup-tools/scripts/diagnose_usb_disk.sh /usr/local/bin/dia
 编辑配置文件：
 
 ```bash
-sudo vim /opt/usb-backup-tools/config/usb_backup.conf
+sudo vim /opt/fnos-usbkit/config/usb_backup.conf
 ```
 
 ### 核心配置项
@@ -89,7 +89,7 @@ SOURCE_DIR="/fnos"
 BACKUP_BASE_DIR="backups"
 
 # 日志目录
-LOG_DIR="/opt/usb-backup-tools/logs"
+LOG_DIR="/opt/fnos-usbkit/logs"
 
 # 自动从虚拟机释放USB设备
 AUTO_RELEASE_FROM_VM=false
@@ -113,17 +113,17 @@ RSYNC_EXCLUDE=(
 # 2. 挂载USB备份盘
 sudo mount-usb
 # 或完整路径
-sudo /opt/usb-backup-tools/scripts/mount_usb_backup.sh
+sudo /opt/fnos-usbkit/scripts/mount_usb_backup.sh
 
 # 3. 执行备份
 sudo backup-to-usb
 # 或完整路径
-sudo /opt/usb-backup-tools/scripts/auto_backup_to_usb.sh
+sudo /opt/fnos-usbkit/scripts/auto_backup_to_usb.sh
 
 # 4. 卸载USB备份盘
 sudo umount-usb
 # 或完整路径
-sudo /opt/usb-backup-tools/scripts/umount_usb_backup.sh
+sudo /opt/fnos-usbkit/scripts/umount_usb_backup.sh
 ```
 
 ### 诊断工具
@@ -133,7 +133,7 @@ sudo /opt/usb-backup-tools/scripts/umount_usb_backup.sh
 ```bash
 sudo diagnose-usb
 # 或完整路径
-sudo /opt/usb-backup-tools/scripts/diagnose_usb_disk.sh
+sudo /opt/fnos-usbkit/scripts/diagnose_usb_disk.sh
 ```
 
 诊断脚本会检查：
@@ -228,10 +228,10 @@ RSYNC_EXCLUDE=(
 sudo crontab -e
 
 # 每天凌晨2点自动备份
-0 2 * * * /opt/usb-backup-tools/scripts/auto_backup_to_usb.sh
+0 2 * * * /opt/fnos-usbkit/scripts/auto_backup_to_usb.sh
 
 # 每小时备份一次
-0 * * * * /opt/usb-backup-tools/scripts/auto_backup_to_usb.sh
+0 * * * * /opt/fnos-usbkit/scripts/auto_backup_to_usb.sh
 ```
 
 ## 测试
@@ -239,7 +239,7 @@ sudo crontab -e
 运行测试套件：
 
 ```bash
-sudo bash /opt/usb-backup-tools/tests/run_tests.sh
+sudo bash /opt/fnos-usbkit/tests/run_tests.sh
 ```
 
 测试包括：
@@ -256,7 +256,7 @@ sudo bash /opt/usb-backup-tools/tests/run_tests.sh
 ## 项目结构
 
 ```
-usb-backup-tools/
+fnos-usbkit/
 ├── README.md                   # 项目文档
 ├── install.sh                  # 安装脚本
 ├── lib/
@@ -279,10 +279,10 @@ usb-backup-tools/
 
 ```bash
 # 查看最新日志
-sudo tail -f /opt/usb-backup-tools/logs/usb_backup_*.log
+sudo tail -f /opt/fnos-usbkit/logs/usb_backup_*.log
 
 # 查看备份日志
-sudo ls -lh /opt/usb-backup-tools/logs/
+sudo ls -lh /opt/fnos-usbkit/logs/
 ```
 
 日志包含：

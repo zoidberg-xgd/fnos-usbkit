@@ -1,6 +1,6 @@
 #!/bin/bash
 
-# USB备份工具测试套件
+# FnOS-UsbKit 测试套件
 # 作者：USB Backup Tools
 # 用途：测试所有脚本功能的正确性
 # 版本：1.0.0
@@ -598,7 +598,7 @@ print_test_summary() {
 main() {
     echo ""
     echo "╔════════════════════════════════════════╗"
-    echo "║   USB备份工具测试套件 v1.0.0           ║"
+    echo "║   FnOS-UsbKit 测试套件 v1.0.0         ║"
     echo "╚════════════════════════════════════════╝"
     echo ""
     echo "项目目录: $PROJECT_ROOT"

@@ -1,8 +1,8 @@
-# USB Backup Tools for Linux - 仓库规划
+# FnOS-UsbKit - 仓库规划
 
 ## 📌 项目定位
 
-**通用的Linux移动硬盘备份工具集**，专注解决复杂存储结构（RAID/LVM）的自动挂载和备份问题。
+**飞牛OS USB工具箱**，解决USB掉盘问题 + 智能备份，专注解决复杂存储结构（RAID/LVM）的自动挂载和备份问题。
 
 ## 🎯 目标用户
 
@@ -13,7 +13,7 @@
 ## 📁 建议的仓库结构
 
 ```
-usb-backup-tools/
+fnos-usbkit/
 ├── README.md                          # 项目主页（英文）
 ├── README_CN.md                       # 中文说明
 ├── LICENSE                            # MIT/GPL许可证
@@ -146,7 +146,7 @@ ON_ERROR_ACTION="rollback"  # rollback, continue, abort
 ### Quick Start
 ```bash
 # 安装
-curl -sSL https://raw.githubusercontent.com/username/usb-backup-tools/main/install/install.sh | bash
+curl -sSL https://raw.githubusercontent.com/username/fnos-usbkit/main/install.sh | bash
 
 # 使用
 usb-backup mount    # 挂载移动硬盘

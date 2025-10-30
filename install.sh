@@ -1,8 +1,8 @@
 #!/bin/bash
 
-# USB备份工具安装脚本
-# 作者：USB Backup Tools
-# 用途：自动安装和配置USB备份工具
+# FnOS-UsbKit 安装脚本
+# 作者：FnOS-UsbKit Team
+# 用途：自动安装和配置飞牛OS USB工具箱（掉盘修复+智能备份）
 # 版本：1.0.0
 
 set -euo pipefail
@@ -18,7 +18,7 @@ NC='\033[0m' # No Color
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 
 # 默认安装目录
-DEFAULT_INSTALL_DIR="/opt/usb-backup-tools"
+DEFAULT_INSTALL_DIR="/opt/fnos-usbkit"
 INSTALL_DIR="${INSTALL_DIR:-$DEFAULT_INSTALL_DIR}"
 
 # ============================================
@@ -363,7 +363,7 @@ show_installation_summary() {
     echo "╚════════════════════════════════════════╝"
     echo ""
     
-    log_success "USB备份工具已成功安装到: $INSTALL_DIR"
+    log_success "FnOS-UsbKit 已成功安装到: $INSTALL_DIR"
     echo ""
     
     echo "📋 可用命令："
@@ -396,7 +396,7 @@ show_installation_summary() {
 uninstall() {
     echo ""
     echo "╔════════════════════════════════════════╗"
-    echo "║          卸载 USB备份工具              ║"
+    echo "║          卸载 FnOS-UsbKit             ║"
     echo "╚════════════════════════════════════════╝"
     echo ""
     
@@ -448,7 +448,7 @@ main() {
         install)
             echo ""
             echo "╔════════════════════════════════════════╗"
-            echo "║   USB备份工具安装向导 v1.0.0           ║"
+            echo "║   FnOS-UsbKit 安装向导 v1.0.0         ║"
             echo "╚════════════════════════════════════════╝"
             echo ""
             
@@ -484,8 +484,8 @@ main() {
         *)
             echo "用法: $0 [install|uninstall]"
             echo ""
-            echo "  install   - 安装USB备份工具（默认）"
-            echo "  uninstall - 卸载USB备份工具"
+            echo "  install   - 安装FnOS-UsbKit（默认）"
+            echo "  uninstall - 卸载FnOS-UsbKit"
             echo ""
             exit 1
             ;;
