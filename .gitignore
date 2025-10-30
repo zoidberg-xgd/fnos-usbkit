@@ -30,3 +30,10 @@ tests/*.log
 *.zip
 *.tgz
 
+# 个人配置文件（只推送.example示例文件）
+config/usb_backup.conf
+
+# 本地部署脚本（包含个人IP等信息）
+deploy_local.sh
+*_local.sh
+
