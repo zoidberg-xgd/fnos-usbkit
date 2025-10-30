@@ -1,0 +1,32 @@
+# 日志文件
+*.log
+logs/
+
+# 临时文件
+*.tmp
+*.bak
+*.swp
+*~
+
+# macOS系统文件
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# 备份文件
+*.backup
+
+# 测试临时文件
+tests/tmp/
+tests/*.log
+
+# IDE配置
+.vscode/
+.idea/
+*.iml
+
+# 压缩文件
+*.tar.gz
+*.zip
+*.tgz
+
