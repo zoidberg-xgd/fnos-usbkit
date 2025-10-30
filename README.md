@@ -32,7 +32,7 @@
 
 ```bash
 # 克隆仓库
-git clone https://github.com/yourusername/fnos-usbkit.git
+git clone https://github.com/zoidberg-xgd/fnos-usbkit.git
 cd fnos-usbkit
 
 # 运行安装脚本
